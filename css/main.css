@@ -16,7 +16,7 @@
 
 #nav-menu-1 {
   position: fixed;
-  top: -200px;
+  top: -250px;
   transition: linear 0.3s;
   z-index: 900;
   background-color: #ebeced;
