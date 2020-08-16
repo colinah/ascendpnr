@@ -16,6 +16,7 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 	<?php wp_head(); ?>
 </head>
@@ -30,6 +31,13 @@
 				the_custom_logo();
 				?>
 			</div><!-- .nav-logo -->
+			<nav class="nav-primary__items">
+				<span class="nav-primary__item nav-primary__item-hover" ><a href="<?php  echo site_url('/') ?>">Home</a></span>
+				<span class="nav-primary__item nav-primary__item-hover" ><a href="<?php  echo site_url('/blog') ?>">Blog</a></span>
+				<span class="nav-primary__item nav-primary__item-hover" ><a href="<?php  echo site_url('/contact') ?>">Contact</a></span>
+				<span class="nav-primary__item nav-primary__item-hover" ><a href="<?php  echo site_url('/bio') ?>">Bio</a></span>
+				<span class="nav-primary__item " id="nav-search__form"><?php get_search_form(); ?></span>
+			</nav>
 		</div><!-- .nav-primary -->
 
 
@@ -56,6 +64,7 @@
 				<span class="nav-menu__item" ><a href="<?php  echo site_url('/') ?>">Home</a></span>
 				<span class="nav-menu__item" ><a href="<?php  echo site_url('/blog') ?>">Blog</a></span>
 				<span class="nav-menu__item" ><a href="<?php  echo site_url('/contact') ?>">Contact</a></span>
+				<span class="nav-menu__item" ><a href="<?php  echo site_url('/bio') ?>">Bio</a></span>
 			</nav>
 			<div id="nav-mobile__modal-1"
 				onclick=

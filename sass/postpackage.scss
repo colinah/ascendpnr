@@ -1,0 +1,49 @@
+@import 'variables';
+
+.post-package__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+}
+
+.post-package {
+    position: relative;
+    width: 45%;
+    min-width: 300px;
+    margin: 10px;
+    flex: 1 0 auto;
+}
+
+.package-icons {
+    position: absolute;
+    right: 0;
+    top: 0;
+    // display: flex;
+    // flex-direction: column;
+
+}
+
+.package-icon {
+    margin: 8px;
+    width: map-get($map: $sizes, $key: package-icon);
+    height: map-get($map: $sizes, $key: package-icon);
+    background-color: map-get($map: $colors, $key: bgc-icon);
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.package-image__wrapper{
+    max-width: 100%;
+}
+
+.package-title__wrapper{
+    width: 100%;
+}
+
+.package-title{
+    text-align: left;
+    margin-top: 8px;
+    font-size: 24px;
+    color: map-get($map: $colors, $key: package-color)
+}

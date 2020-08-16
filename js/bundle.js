@@ -1,46 +1,45 @@
+// /* global wp, jQuery */
+// /**
+//  * File customizer.js.
+//  *
+//  * Theme Customizer enhancements for a better user experience.
+//  *
+//  * Contains handlers to make Theme Customizer preview reload changes asynchronously.
+//  */
 
-/* global wp, jQuery */
-/**
- * File customizer.js.
- *
- * Theme Customizer enhancements for a better user experience.
- *
- * Contains handlers to make Theme Customizer preview reload changes asynchronously.
- */
+// ( function( $ ) {
+// 	// Site title and description.
+// 	wp.customize( 'blogname', function( value ) {
+// 		value.bind( function( to ) {
+// 			$( '.site-title a' ).text( to );
+// 		} );
+// 	} );
+// 	wp.customize( 'blogdescription', function( value ) {
+// 		value.bind( function( to ) {
+// 			$( '.site-description' ).text( to );
+// 		} );
+// 	} );
 
-( function( $ ) {
-	// Site title and description.
-	wp.customize( 'blogname', function( value ) {
-		value.bind( function( to ) {
-			$( '.site-title a' ).text( to );
-		} );
-	} );
-	wp.customize( 'blogdescription', function( value ) {
-		value.bind( function( to ) {
-			$( '.site-description' ).text( to );
-		} );
-	} );
-
-	// Header text color.
-	wp.customize( 'header_textcolor', function( value ) {
-		value.bind( function( to ) {
-			if ( 'blank' === to ) {
-				$( '.site-title, .site-description' ).css( {
-					clip: 'rect(1px, 1px, 1px, 1px)',
-					position: 'absolute',
-				} );
-			} else {
-				$( '.site-title, .site-description' ).css( {
-					clip: 'auto',
-					position: 'relative',
-				} );
-				$( '.site-title a, .site-description' ).css( {
-					color: to,
-				} );
-			}
-		} );
-	} );
-}( jQuery ) );
+// 	// Header text color.
+// 	wp.customize( 'header_textcolor', function( value ) {
+// 		value.bind( function( to ) {
+// 			if ( 'blank' === to ) {
+// 				$( '.site-title, .site-description' ).css( {
+// 					clip: 'rect(1px, 1px, 1px, 1px)',
+// 					position: 'absolute',
+// 				} );
+// 			} else {
+// 				$( '.site-title, .site-description' ).css( {
+// 					clip: 'auto',
+// 					position: 'relative',
+// 				} );
+// 				$( '.site-title a, .site-description' ).css( {
+// 					color: to,
+// 				} );
+// 			}
+// 		} );
+// 	} );
+// }( jQuery ) );
 
 
 
@@ -50,8 +49,23 @@
  * Handles toggling the navigation menu for small screens and enables TAB key
  * navigation support for dropdown menus.
  */
+// My personal functions
+
+function updateId(id1,id2) {
+	var el = document.getElementById(id1);
+	
+	if (el) {
+	el.id = id2;
+	} else {
+	el = document.getElementById(id2);
+	el.id = id1;
+	}
+	
+	return el;
+}
 
 
+ //Underscores Functions
 ( function() {
 	const siteNavigation = document.getElementById( 'site-navigation' );
 
@@ -146,3 +160,32 @@
 		}
 	}
 }() );
+
+//Photo Banner
+
+var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function currentDiv(n) {
+  showDivs(slideIndex = n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("photobanner-block");
+  var dots = document.getElementsByClassName("demo");
+  if (n > x.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" photobanner-button__dots-white", "");
+  }
+  x[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " photobanner-button__dots-white";
+}

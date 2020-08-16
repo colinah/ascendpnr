@@ -17,7 +17,7 @@ gulp.task('build-that-css', function() {
 // Obviously enqueue this new css file "main.css" in your functions.php
 
 gulp.task('compress-that-js', function() {
-  gulp.src('./js/*.js')
+  return gulp.src('./jsworking/*.js')
     // .pipe(minify({
     // 	ext: {
     // 		src: 'bundle.js', // create main.js for all your extra theme JS
@@ -32,7 +32,7 @@ gulp.task('compress-that-js', function() {
 // Gulp is watching you and your coding with the command: gulp watch
 gulp.task('watch', function() {
   gulp.watch('./sass/*.scss', gulp.series('build-that-css'));
-  gulp.watch('./js/*.js', gulp.series('compress-that-js'));
+  gulp.watch('./jsworking/*.js', gulp.series('compress-that-js'));
 });
 
 // gulp.task('default', ['watch']);

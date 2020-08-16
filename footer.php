@@ -25,6 +25,9 @@
 				printf( esc_html__( 'Theme: %1$s by %2$s.', 'ascend' ), 'ascend', '<a href="http://halecolin1.com">Colin Hale</a>' );
 				?>
 		</div><!-- .site-info -->
+		<div>
+			<span>Icons from <a href="https://icons8.com/">https://icons8.com/</a></span>
+		</div>
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 

@@ -46,6 +46,12 @@ if ( ! function_exists( 'ascend_setup' ) ) :
 		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 		 */
 		add_theme_support( 'post-thumbnails' );
+		// Image Sizes
+		add_image_size('banner', 1900, 600 ,true);
+		add_image_size('post-thumbnail-large', 1280, 720 ,true);
+		add_image_size('post-thumbnail-medium', 640, 360 ,true);
+		add_image_size('post-thumbnail-small', 320, 180 ,true);
+
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus(
@@ -146,7 +152,7 @@ function ascend_scripts() {
 	wp_enqueue_style( 'ascend-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'ascend-style', 'rtl', 'replace' );
 
-	wp_enqueue_script( 'ascend-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	//wp_enqueue_script( 'ascend-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -193,3 +199,46 @@ function add_that_css_and_js() {
   
   }
   add_action( 'wp_enqueue_scripts', 'add_that_css_and_js' );
+
+
+  function postPackages() {
+	  ?>
+            <article class="post-package">
+                <div class="package-icons">
+                        <?php
+                            if(has_category('rehab')){
+                                ?>
+                                    <div class="package-icon">
+										<a href="<? echo get_category_link(4); ?>">	
+											<img src="<?php echo wp_get_attachment_image_src( 45 )[0]; ?>" >
+										</a>
+                                    </div>
+                                <?php
+                            }
+                        ?>
+                        <?php
+                            if(has_category('strength-and-conditioning')){
+                                ?>
+                                    <div class="package-icon">
+										<a href="<? echo get_category_link(3); ?>">
+											<img src="<?php echo wp_get_attachment_image_src( 46 )[0]; ?>" >
+										</a>
+                                    </div>
+                                <?php
+                            }
+                        ?>
+                </div>
+                <a href="<?php echo get_post_permalink(); ?>">
+                    <div class="package-image__wrapper">
+                        <img src="<?the_post_thumbnail_url('post-thumbnail-medium')?>" >
+                    </div>
+                    <div class="package-title__wrapper">
+                    <?php
+                        ?>
+                        <h2 class="package-title"><?the_title();?></h2>
+                    </div>
+                </a>
+            </article>
+    <?php
+  }
+

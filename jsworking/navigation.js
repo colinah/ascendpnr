@@ -20,8 +20,6 @@ function updateId(id1,id2) {
 }
 
 
-
-
  //Underscores Functions
 ( function() {
 	const siteNavigation = document.getElementById( 'site-navigation' );
