@@ -227,6 +227,39 @@ function add_that_css_and_js() {
                                 <?php
                             }
                         ?>
+						                        <?php
+                            if(has_category('spine')){
+                                ?>
+                                    <div class="package-icon">
+										<a href="<? echo get_category_link(27); ?>">
+											<img src="<?php echo wp_get_attachment_image_src( 73 )[0]; ?>" >
+										</a>
+                                    </div>
+                                <?php
+                            }
+                        ?>
+						                        <?php
+                            if(has_category('upper-extremities')){
+                                ?>
+                                    <div class="package-icon">
+										<a href="<? echo get_category_link(30); ?>">
+											<img src="<?php echo wp_get_attachment_image_src( 71 )[0]; ?>" >
+										</a>
+                                    </div>
+                                <?php
+                            }
+                        ?>
+						                        <?php
+                            if(has_category('lower-extremities')){
+                                ?>
+                                    <div class="package-icon">
+										<a href="<? echo get_category_link(31); ?>">
+											<img src="<?php echo wp_get_attachment_image_src( 72 )[0]; ?>" >
+										</a>
+                                    </div>
+                                <?php
+                            }
+                        ?>
                 </div>
                 <a href="<?php echo get_post_permalink(); ?>">
                     <div class="package-image__wrapper">
