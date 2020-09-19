@@ -21,6 +21,7 @@
     "@babel/preset-env": "^7.11.0",
     "@babel/register": "^7.10.5",
     "@wordpress/scripts": "^9.0.0",
+    "axios": "^0.20.0",
     "dir-archiver": "^1.1.1",
     "gulp": "^4.0.2",
     "gulp-clean-css": "^4.3.0",
@@ -54,5 +55,6 @@
     "bundle": "dir-archiver --src . --dest ../_s.zip --exclude .DS_Store .stylelintrc.json .eslintrc .git .gitattributes .github .gitignore README.md composer.json composer.lock node_modules vendor package-lock.json package.json .travis.yml phpcs.xml.dist sass style.css.map"
   },
   "main": "index.js",
-  "dependencies": {}
+  "dependencies": {},
+  "type": "module"
 }

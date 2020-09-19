@@ -24,10 +24,12 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 <div id="page" class="site">
+	<div class="header-backer"></div>
 	<header id="masthead" class="site-header">
 		<div class="nav-primary">
+			<div class="nav-primary__container">
 			<div class="nav-logo">
-				<?
+				<?php
 				the_custom_logo();
 				?>
 			</div><!-- .nav-logo -->
@@ -36,42 +38,33 @@
 				<span class="nav-primary__item nav-primary__item-hover" ><a href="<?php  echo site_url('/blog') ?>">Blog</a></span>
 				<span class="nav-primary__item nav-primary__item-hover" ><a href="<?php  echo site_url('/contact') ?>">Contact</a></span>
 				<span class="nav-primary__item nav-primary__item-hover" ><a href="<?php  echo site_url('/bio') ?>">Bio</a></span>
-				<span class="nav-primary__item " id="nav-search__form"><?php get_search_form(); ?></span>
+				<span class="nav-primary__item"><?php get_search_form(); ?></span>
 			</nav>
+			</div><!-- /nav-primary__container -->
 		</div><!-- .nav-primary -->
 
 
 		<!-- Mobile Navigation -->
 		<div class="nav-mobile">
 			<div class="nav-logo">
-				<?
+				<?php
 				the_custom_logo();
 				?>
 			</div><!-- .nav-logo -->
-			<div class="nav-mobile__toggle" 
-				onclick=
-					"(()=>{
-						updateId('nav-mobile__modal-1','nav-mobile__modal-2');
-						updateId('nav-menu-1','nav-menu-2');
-						})()">
+			<div class="nav-mobile__toggle" >
 				<span></span>
 				<span></span>
 				<span></span>
 			</div> <!-- .nav-mobile__toggle -->
 		</div> <!-- .nav-mobile -->
 			<nav id="nav-menu-1">
-				<span class="nav-menu__item" id="nav-search__form"><?php get_search_form(); ?></span>
 				<span class="nav-menu__item" ><a href="<?php  echo site_url('/') ?>">Home</a></span>
 				<span class="nav-menu__item" ><a href="<?php  echo site_url('/blog') ?>">Blog</a></span>
 				<span class="nav-menu__item" ><a href="<?php  echo site_url('/contact') ?>">Contact</a></span>
 				<span class="nav-menu__item" ><a href="<?php  echo site_url('/bio') ?>">Bio</a></span>
+				<span class="nav-menu__item" ><?php get_search_form(); ?></span>
 			</nav>
-			<div id="nav-mobile__modal-1"
-				onclick=
-					"(()=>{
-						updateId('nav-mobile__modal-1','nav-mobile__modal-2');
-						updateId('nav-menu-1','nav-menu-2');
-						})()">
+			<div id="nav-mobile__modal-1">
 			</div>
 		<!-- /Mobile Navigation -->
 		

@@ -38,7 +38,7 @@ get_header();
 
 				</div> <!-- /content-main -->
 			<div class="content-sidebar">
-				<? get_sidebar(); ?>
+				<?php get_sidebar(); ?>
 			</div>
 		</div><!-- content-wrapper -->
 	</div><!-- /page-wrapper -->

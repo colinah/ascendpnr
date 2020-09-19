@@ -1,6 +1,92 @@
 @import 'variables';
 
-a, a:visited,.a:hover, a:active {
+$primary-text-color: #222222;
+$secondary-text-color: #3f3f3f;
+$third-text-color: #c5c5c5;
+$primary-highlight-color: #fe5d26;
+$secondary-highlight-color: #426391;
+$third-highlight-color: #101010;
+$background-color: #fff8f0;
+$background-secondary-color: #e0d8ce;
+
+:root {
+    --primary-text-color: #{$primary-text-color};
+    --secondary-text-color: #{$secondary-text-color};
+    --third-text-color: #{$third-text-color};
+    --primary-highlight-color: #{$primary-highlight-color};
+    --secondary-highlight-color: #{$secondary-highlight-color};
+    --third-highlight-color: #{$third-highlight-color};
+    --background-color: #{$background-color};
+    --background-secondary-color: #{$background-secondary-color};
+}
+
+$d-primary-text-color: #fff8f0;
+$d-secondary-text-color: #c0c0c0;
+$d-third-text-color: #7c7c7c;
+$d-primary-highlight-color: #fe5d26;
+$d-secondary-highlight-color: #426391;
+$d-third-highlight-color: #101010;
+$d-background-color: #2e2e2e;
+$d-background-secondary-color: #2e2e2e;
+
+[data-theme="dark"] {
+    --primary-text-color: #{$d-primary-text-color};
+    --secondary-text-color: #{$d-secondary-text-color};
+    --third-text-color: #{$d-third-text-color};
+    --primary-highlight-color: #{$d-primary-highlight-color};
+    --secondary-highlight-color: #{$d-secondary-highlight-color};
+    --third-highlight-color: #{$d-third-highlight-color};
+    --background-color: #{$d-background-color};
+    --background-secondary-color: #{$d-background-secondary-color};
+}
+
+@font-face {
+    font-family: 'Nunito Sans';
+    src: url('../fonts/Nunito_Sans/NunitoSans-Regular.ttf');
+    font-weight: 100 900;
+}
+@font-face {
+    font-family: 'Spartan';
+    src: url('../fonts/Spartan/Spartan-VariableFont_wght.ttf');
+    font-weight: 100 900;
+}
+@font-face {
+    font-family: 'Noto Sans';
+    src: url('../fonts/Noto_Sans/NotoSans-Regular.ttf');
+    font-weight: 100 900;
+}
+
+a, a:visited,.a:hover, a:active, p {
     color: inherit;
     text-decoration: none;
 }
+
+button {
+outline: none; // this one
+}
+
+input:focus, textarea {
+outline: none !important;
+}
+
+body {
+    margin: 0 !important;
+    background-color: var(--background-color);
+    color: var(--secondary-text-color);
+}
+
+
+
+.content_wrapper {
+    background-color: var(--background-color);
+}
+
+@media (prefers-color-scheme: dark) {
+    .image-darken__added {
+        opacity: .75;
+        transition: opacity .5s ease-in-out;
+    }
+    .image-darken__added:hover {
+        opacity: 1;
+    }
+  }

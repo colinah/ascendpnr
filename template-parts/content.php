@@ -20,16 +20,20 @@
 
 		if ( 'post' === get_post_type() ) :
 			?>
-			<div class="entry-meta">
-				<?php
-				ascend_posted_on();
-				ascend_posted_by();
-				?>
-			</div><!-- .entry-meta -->
+
 		<?php endif; ?>
 	</header><!-- .entry-header -->
+	<div class="post-image__wrapper">
+		<img src="<?php the_post_thumbnail_url(); ?>"
+			class="image">
+		<div class="entry-meta">
+			<?php
+			ascend_posted_on();
+			ascend_posted_by();
+			?>
+		</div><!-- .entry-meta -->
+	</div>
 
-	<?php ascend_post_thumbnail(); ?>
 
 	<div class="entry-content">
 		<?php

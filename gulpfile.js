@@ -2,10 +2,10 @@
 // This is meant as a starting point. You can do a LOT more with gulpjs than this
 
 // Requiring dependencies here, make sure to add them via the terminal
-var gulp   = require('gulp'),
-    sass   = require('gulp-sass'),
-    concat = require('gulp-concat'),
-    minify = require('gulp-minify');
+import gulp from 'gulp';
+import sass from 'gulp-sass';
+import concat from 'gulp-concat';
+import minify from 'gulp-minify';
 
 // Need to create a /css folder and a /sass folder inside the /css folder
 gulp.task('build-that-css', function() {

@@ -12,22 +12,39 @@
 ?>
 
 	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'ascend' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'ascend' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'ascend' ), 'ascend', '<a href="http://halecolin1.com">Colin Hale</a>' );
-				?>
-		</div><!-- .site-info -->
-		<div>
-			<span>Icons from <a href="https://icons8.com/">https://icons8.com/</a></span>
-		</div>
+		<div class="footer-wrapper">
+			<div class="footer-menu__wrapper">
+				<?php dynamic_sidebar('footer'); ?>
+			</div>
+			<div class="footer-newsletter__wrapper">
+				<?php dynamic_sidebar('newsletter'); ?>
+				<div class="footer-icons">
+					<div class="footer-icon-text">Follow us on social media:</div>
+					<div class="footer-icon"><a href="https://www.instagram.com/dr.jedidiah/?hl=en"><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></a></div>
+				</div>
+			</div>
+		</div> <!-- /footer-wrapper -->
+
+		<div class="bottom-wrapper">
+
+			<div class="site-info">
+				<small>Designed and developed by: <a href="https://halecolin.com/">Colin Hale</a><small>
+				<div>
+				<small>&copy; Copyright <?php echo date("Y"); ?>, Ascend Performance and Rehab</small> 
+			</div>
+			<div>
+				<small class="icons8">Icons from <a href="https://icons8.com/">https://icons8.com/</a></small>
+			</div>
+			</div><!-- .site-info -->
+			<div class="theme-switch-wrapper">
+							<label class="theme-switch" for="checkbox">
+							<input type="checkbox" id="checkbox" />
+							<div class="slider round"></div>
+						</label>
+						<em>Enable Dark Mode!</em>
+				</div>
+		</div> <!-- bottom-wrapper -->
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 

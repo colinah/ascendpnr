@@ -6,10 +6,6 @@
     background: transparent;
    }
 
-.page-wrapper {
-    margin-top: map-get($map: $sizes, $key: nav-height);
-}
-
 .content-wrapper {
     margin: 60px auto;
     // text-align: center;
@@ -23,12 +19,9 @@
 .section-header__wrapper {
     margin: 20px auto;
     font-size: 44px;
-    color: map-get($map: $colors, $key: section-header);
+    color: var(--primary-text-color);
 }
 
-.section-header{
-    margin-top: 0;
-}
 
 .content-main {
     margin: 0 auto;
@@ -38,6 +31,8 @@
 }
 
 .content-sidebar {
+    background-color: var(--background-secondary-color);
+    margin: 0 auto;
     width: 90%;
     display: block;
 }
@@ -50,14 +45,15 @@
 @media (min-width: 1024px) {
     .content-main {
         display: inline-block;
-        width: 70%
+        width: 70%;
+        padding: 20px;
     }
     
     .content-sidebar {
-        margin-top: 130px;
+        margin-top: 40px;
         display: inline-block;
         width: 28%;
         vertical-align: top;
-
     }
+
 }

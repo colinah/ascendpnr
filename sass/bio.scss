@@ -1,0 +1,54 @@
+@import 'variables';
+
+
+.bio-highlight__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.bio-icons__wrapper{
+    margin: 20px auto;
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center !important;
+
+}
+
+.bio-portrait {
+    align-items: center;
+    justify-content: space-around;
+    margin: 10px auto;
+    height: 300px !important;
+    flex-shrink: 0;
+
+}
+
+.bio-icons {
+    padding: 15px;
+    width: 200px;
+    border-radius:10px;
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    font-family:sans-serif;
+    flex-direction: column;
+}
+
+.bio-icon__points {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.bio-icon__point {
+    padding: 3px;
+}
+
+.fa-blue {
+    color: var(--secondary-highlight-color);
+}
+

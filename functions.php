@@ -142,6 +142,26 @@ function ascend_widgets_init() {
 			'after_title'   => '</h2>',
 		)
 	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Footer', 'ascend' ),
+			'id'            => 'footer',
+			'description'   => esc_html__( 'Add widgets here.', 'ascend' ),
+			'before_widget' => '<section id="%1$s" class="footer-widget f-%2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="footer-widget__title">',
+			'after_title'   => '</h2>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Newsletter', 'ascend' ),
+			'id'            => 'newsletter',
+			'description'   => esc_html__( 'Add widgets here.', 'ascend' ),
+			'before_widget' => '<div id="%1$s" class="signup-form_%2$s">',
+			'after_widget'  => '</div>'
+		)
+	);
 }
 add_action( 'widgets_init', 'ascend_widgets_init' );
 
@@ -190,6 +210,15 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 /*
 This is taken directly from here and modified to fit our needs: https://developer.wordpress.org/themes/basics/including-css-javascript/
 */
+function add_type_attribute($tag, $handle, $src) {
+    // if not your script, do nothing and return original $tag
+    if ( 'enqueue-that-js' !== $handle ) {
+        return $tag;
+    }
+    // change the script tag by adding type="module" and return it.
+    $tag = '<script type="module" src="' . esc_url( $src ) . '"></script>';
+    return $tag;
+}
 
 function add_that_css_and_js() {
  
@@ -197,9 +226,27 @@ function add_that_css_and_js() {
    
 	wp_enqueue_script( 'enqueue-that-js', get_template_directory_uri() . '/js/bundle.js', array ( 'jquery' ), 1.0, true);
   
-  }
+}
   add_action( 'wp_enqueue_scripts', 'add_that_css_and_js' );
 
+  add_filter( 'script_loader_tag', 'add_id_to_script', 10, 3 );
+ 
+  function add_id_to_script( $tag, $handle, $src ) {
+	  if ( 'enqueue-that-js' === $handle ) {
+		  $tag = '<script type="module" src="' . esc_url( $src ) . '" id="dropboxjs" data-app-key="MY_APP_KEY"></script>';
+	  }
+   
+	  return $tag;
+  }
+
+  add_action('init', function(){
+	register_post_type('Services', [
+		'public' => true,
+		'label' => 'Services',
+		'has_archive' => false,
+		'menu_icon'   => 'dashicons-products',
+	]);
+});
 
   function postPackages() {
 	  ?>
@@ -209,8 +256,8 @@ function add_that_css_and_js() {
                             if(has_category('rehab')){
                                 ?>
                                     <div class="package-icon">
-										<a href="<? echo get_category_link(4); ?>">	
-											<img src="<?php echo wp_get_attachment_image_src( 45 )[0]; ?>" >
+										<a href="<?php echo get_category_link(4); ?>">	
+											<img class="image-no__darken" src="<?php echo wp_get_attachment_image_src( 45 )[0]; ?>" >
 										</a>
                                     </div>
                                 <?php
@@ -221,7 +268,7 @@ function add_that_css_and_js() {
                                 ?>
                                     <div class="package-icon">
 										<a href="<? echo get_category_link(3); ?>">
-											<img src="<?php echo wp_get_attachment_image_src( 46 )[0]; ?>" >
+											<img class="image-no__darken" src="<?php echo wp_get_attachment_image_src( 46 )[0]; ?>" >
 										</a>
                                     </div>
                                 <?php
@@ -231,8 +278,8 @@ function add_that_css_and_js() {
                             if(has_category('spine')){
                                 ?>
                                     <div class="package-icon">
-										<a href="<? echo get_category_link(27); ?>">
-											<img src="<?php echo wp_get_attachment_image_src( 73 )[0]; ?>" >
+										<a href="<?php echo get_category_link(27); ?>">
+											<img class="image-no__darken" src="<?php echo wp_get_attachment_image_src( 73 )[0]; ?>" >
 										</a>
                                     </div>
                                 <?php
@@ -242,8 +289,8 @@ function add_that_css_and_js() {
                             if(has_category('upper-extremities')){
                                 ?>
                                     <div class="package-icon">
-										<a href="<? echo get_category_link(30); ?>">
-											<img src="<?php echo wp_get_attachment_image_src( 71 )[0]; ?>" >
+										<a href="<?php echo get_category_link(30); ?>">
+											<img class="image-no__darken" src="<?php echo wp_get_attachment_image_src( 71 )[0]; ?>" >
 										</a>
                                     </div>
                                 <?php
@@ -254,24 +301,60 @@ function add_that_css_and_js() {
                                 ?>
                                     <div class="package-icon">
 										<a href="<? echo get_category_link(31); ?>">
-											<img src="<?php echo wp_get_attachment_image_src( 72 )[0]; ?>" >
+											<img class="image-no__darken" src="<?php echo wp_get_attachment_image_src( 72 )[0]; ?>" >
 										</a>
                                     </div>
                                 <?php
                             }
                         ?>
-                </div>
-                <a href="<?php echo get_post_permalink(); ?>">
+				</div> <!-- package-icons -->
+				
+				<a href="<?php echo get_post_permalink(); ?>">
                     <div class="package-image__wrapper">
-                        <img src="<?the_post_thumbnail_url('post-thumbnail-medium')?>" >
+						<img class="package-image image-darken" 
+							src="<?php the_post_thumbnail_url('post-thumbnail-medium') ?>">
                     </div>
                     <div class="package-title__wrapper">
                     <?php
                         ?>
-                        <h2 class="package-title"><?the_title();?></h2>
+                        <h2 class="package-title"><?php the_title();?></h2>
                     </div>
-                </a>
-            </article>
+				</a>
+				</article>
+
+            
     <?php
   }
 
+
+  add_action('wp_ajax_nopriv_load_more_posts', 'load_more_posts');
+  add_action('wp_ajax_load_more_posts', 'load_more_posts');
+
+  function load_more_posts() {
+	  $next_page = $_POST['current_page'] + 1;
+	  $query = new WP_Query([
+		  'posts_per_page' => 6,
+		  'paged' => $next_page
+	  ]);
+	  
+	  if ($query -> have_posts()) :
+
+		ob_start();
+
+	while ($query->have_posts()) : $query->the_post();
+
+		postPackages();
+
+	  endwhile;
+
+	wp_send_json_success(ob_get_clean());
+
+	else :
+
+		wp_send_json_error("No more posts.");
+	
+	endif;
+
+  }
+
+  ?>

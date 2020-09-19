@@ -1,28 +1,56 @@
 @import 'variables';
 
+/* SCROLLING */
+// Logic
+// .header-backer {
+//     position: fixed;
+//     top: 0;
+//     width: 100%;
+//     height: map-get($map: $sizes, $key: nav-height);
+//     background-color:  var(--background-color);
+//     }
+
+// html:not([data-scroll='0']) {
+//     .header-backer {
+//         background-color:  var(--background-color);
+//     }
+    
+// }
+
 .nav-mobile {
+    --background-color: #fff8f0
     position: fixed;
     top: 0;
     left: 0;
     display: block;
     height: map-get($map: $sizes, $key: nav-height);
     width: 100vw;
-    background-color: map-get($map: $colors, $key: bgc);
+    background-color: var(background-color);
     z-index: 1000;
 }
 
 .nav-logo{
-    height: map-get($map: $sizes, $key: nav-height);
-    width: map-get($map: $sizes, $key: nav-height);
+    padding: 3px !important;
+    box-sizing: border-box;
+    height: 100%;
+}
+
+.nav-logo img{
+    display: block;
+    // max-height: map-get($map: $sizes, $key: nav-height);
+    max-height: 54px;
+    width: auto;
+    height: 100%;
+ 
 }
 
 //Mobile Modal and dropdown styles
 #nav-menu-1 {
     position: fixed;
-    top: -250px;
+    top: -300px;
     transition: linear 0.3s;
     z-index: 900;
-    background-color: map-get($map: $colors, $key: bgc);
+    background-color: var(--background-color);
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -34,7 +62,7 @@
     top: map-get($map: $sizes, $key: nav-height);
     transition: linear 0.3s;
     z-index: 900;
-    background-color: map-get($map: $colors, $key: bgc);
+    background-color:  var(--background-color);
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -44,6 +72,7 @@
 .nav-menu__item {
     text-align: center;
     padding: 16px 26px 18px 16px;
+    color: var(--primary-text-color);
 }
 .nav-menu__item a {
     text-decoration: none;
@@ -72,14 +101,14 @@
 	width: 100vw;
 	height: 100vh;
 	z-index: 400;
-    background-color: rgba(22,22,22,0.2);
+    background-color: rgba(22,22,22,0.6);
     transition: linear 0.3s;
 }
 
 //Hamburger styles
 .nav-mobile__toggle {
     position: absolute;
-    right: 0;
+    right: 20px;
     top: 0;
     height: map-get($map: $sizes, $key: nav-height);
     width: map-get($map: $sizes, $key: nav-height);
@@ -96,7 +125,7 @@
   height: 4px;
   margin-bottom: 5px;
   position: relative;
-  background: map-get($map: $colors, $key: nav-hamburger);
+  background: var(--primary-highlight-color);
   border-radius: 3px;
   z-index: 1;
   transform-origin: 4px 0px;
@@ -104,109 +133,7 @@
               background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
               opacity 0.55s ease;
 }
-
-/* Search Bar */
-
-
-* {
-    box-sizing: border-box;
-  }
-  
-  /* Style the search field */
-  input[type=text] {
-    padding: 10px;
-    font-size: 17px;
-    border: 1px solid grey;
-    float: left;
-    width: 80%;
-    background: #f1f1f1;
-  }
-  
-  /* Style the submit button */
-  input[type=submit] {
-    float: left;
-    width: 20%;
-    padding: 10px;
-    background: #2196F3 !important;
-    color: white;
-    font-size: 17px;
-    border: 1px solid grey;
-    border-left: none; /* Prevent double borders */
-    cursor: pointer;
-  }
-  
-  input[type=submit]:hover {
-    background: #0b7dda;
-  }
-  
-  /* Clear floats */
-  .search-form::after {
-    content: "";
-    clear: both;
-    display: table;
-  }
-
-// .search-submit {
-//     background-color: red !important;
-// }
-
-// input[type="search"] {
-// 	background-color: map-get($map:  $colors, $key: nav-bgc);
-// 	border-top-style: none;
-// 	border-right-style:none;
-// 	border-left-style: none;
-// 	border-bottom-style: 1px solid map-get($map:  $colors, $key: nav-bgc-dark);
-// }
-
-// ::-webkit-input-placeholder { /* Edge */
-// color: map-get($map:  $colors, $key: orange);
-// }
-
-// :-ms-input-placeholder { /* Internet Explorer 10-11 */
-// color: map-get($map:  $colors, $key: orange);
-// }
-
-// ::placeholder {
-// color: map-get($map:  $colors, $key: orange);
-// }
-
-// .nav-search__form .search-submit {
-// 	margin-left: 8px;
-// 	position: relative;
-// 	top: 2px;
-//     border: 3px solid black;
-//     background-color: black !important;
-// 	color: map-get($map:  $colors, $key: nav-text);
-// 	padding: 200px;
-// }
-
-// .nav-search__form input[type="submit"]
-// {
-//  font-size: 10em; /* This controls the size. */
-//  display: inline-block;
-//  width: 0.4em;
-//  height: 0.4em;
-//  border: 0.1em solid #B10B14;
-//  position: relative;
-//  border-radius: 0.35em;
-// }
-// #magnifying-glass::before input[type="submit"]
-// {
-//  content: "";
-//  display: inline-block;
-//  position: absolute;
-//  right: -0.25em;
-//  bottom: -0.1em;
-//  border-width: 0;
-//  background: #B10B14;
-//  width: 0.35em;
-//  height: 0.08em;
-//  -webkit-transform: rotate(45deg);
-//     -moz-transform: rotate(45deg);
-//      -ms-transform: rotate(45deg);
-//       -o-transform: rotate(45deg);
-// }
-
+ 
 /* Hide desktop elements */
 .nav-primary {
     display: none;
@@ -221,24 +148,32 @@
         display: block;
         height: map-get($map: $sizes, $key: nav-height);
         width: 100vw;
-        background-color: map-get($map: $colors, $key: bgc);
+        background-color: rgba(0, 0, 0, 0.2);
         z-index: 1000;
         display: inline-flex;
         justify-content: space-between;
         align-content: flex-end;
+        border-bottom: 1px solid var(--third-text-color);
+    }
+
+    .nav-primary__container{
+        margin: 0 auto;
+        width: 100%;
+        display: inline-flex;
+        justify-content: space-between;
+
     }
 /* Hide mobile elements */
     .nav-mobile {
         display: none;
     }
     .nav-primary__items{
-        position: absolute;
-        bottom: 0;
-        right: 0;
         text-align: bottom;
-        display: flex;
+        display: inline-flex;
     }
+
     .nav-primary__item {
+        color: #fff8f0;
         padding: 20px;
         padding-bottom: 5px;
         padding-top: 10px;
@@ -246,11 +181,149 @@
     }
 
     .nav-primary__item-hover:hover {
-        font-weight:bold;
-        border-bottom: 1px solid map-get($map: $colors, $key: nav-text);
+        color: var(--primary-highlight-color);
+        // // font-weight:bold;
+        // border-bottom: 1px solid map-get($map: $colors, $key: nav-bgc-hover);
     }  
 
     .nav-primary__item a {
         color: inherit
     }
+
+    html:not([data-scroll='0']) {
+        .nav-primary {
+            background-color:  var(--background-color);
+        }
+        .nav-primary__item {
+            color: var(--primary-text-color);
+        }
+        
+    }
+}
+
+@media (min-width: 1200px) {
+    .nav-primary__container{
+        width: 1200px;
+    }
+}
+
+
+
+/* Footer */
+.site-footer {
+    border-top: 1px solid var(--third-text-color);
+    width: 100vw;
+    background-color: var(--background-secondary-color);
+}
+
+.footer-wrapper {
+    width: 100%;
+    display: inline-flex;
+    padding: 40px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.footer-icon_wrapper{
+    padding: 40px;
+    margin: 0 auto;
+    width: 40%;
+    border-bottom: 2px solid var(--primary-text-color);
+}
+
+.footer-icons{
+    margin-top: 10px;
+    display: inline-flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.footer-icon .fa {
+    padding: 5px;
+    color: var(--primary-highlight-color);
+}
+
+.footer-menu__wrapper{
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+// .footer-newsletter__wrapper {
+//     height: 100%;
+//     display: flex;
+//     align-items: center;
+// }
+// #mc4wp_form_widget-4{
+//  margin: auto;
+// }
+.signup-form_widget_mc4wp_form_widget {
+    background-color: var(--background-secondary-color);
+}
+
+.newsletter-names {
+    list-style: none;
+    margin: 0;
+
+}
+
+#mc4wp_form_widget-4 .widgettitle {
+    margin: 0;
+    color: var(--primary-highlight-color);
+    text-align: center;
+}
+
+#mc4wp_form_widget-4 .newsletter-submit {
+    border: 1px solid var(--primary-highlight-color);
+    color: var(--primary-highlight-color);
+    background-color: var(--background-color);
+}
+
+#mc4wp_form_widget-4 .newsletter-submit:hover {
+    color: var(--background-color);
+    background-color: var(--primary-highlight-color);
+}
+
+.footer-icon-text{
+    color: var(--secondary-text-color);
+    text-align: center;
+    line-height: 40px;
+}
+
+.footer-widget__title {
+    text-align: center;
+    color: var(--primary-text-color);
+}
+
+.footer-widget{
+    padding: 20px;
+    padding-top: none;
+    color: var(--secondary-text-color);
+}
+
+.footer-widget ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+
+}
+
+.footer-widget ul li {
+    padding: 2px;
+}
+
+.bottom-wrapper {
+    padding: 0 5px 0 5px;
+    width: 100%;
+    display: inline-flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+@media (min-width: 1024px) {
+.signup-form_widget_mc4wp_form_widget {
+    width: 400px;
+}
 }

@@ -9,43 +9,43 @@
 
 get_header();
 ?>
-
-	<main id="primary" class="site-main">
-
-		<?php if ( have_posts() ) : ?>
-
-			<header class="page-header">
+<div class="page-wrapper">
+<div class="content-wrapper">
+	<div class="content-main">
+		<main id="primary" class="site-main">
+		<header class="page-header">
 				<?php
 				the_archive_title( '<h1 class="page-title">', '</h1>' );
 				the_archive_description( '<div class="archive-description">', '</div>' );
 				?>
 			</header><!-- .page-header -->
 
-			<?php
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
+			<div class="post-package__wrapper">
+		<?php if ( have_posts() ) :
+		while ( have_posts() ) : the_post();
+		
+            postPackages();
 
-				/*
-				 * Include the Post-Type-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_type() );
-
-			endwhile;
-
-			the_posts_navigation();
-
+        endwhile;
+        wp_reset_postdata(); // this should be inside if - there is no need to rested postdata if the_post hasn’t been called.
 		else :
-
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif;
-		?>
+			?>
+			<h1>No Results</h1>
+			<?php
+		endif; 
+		
+			
+    ?> 
+    </div>  <!-- /post-package__wrapper -->
 
 	</main><!-- #main -->
-
+	</div> <!-- /content-main -->
+        <div class="content-sidebar">
+            <? get_sidebar(); ?>
+        </div>
+    </div><!-- content-wrapper -->
+</div><!-- /page-wrapper -->
 <?php
 get_sidebar();
 get_footer();
+

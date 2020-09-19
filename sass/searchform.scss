@@ -1,0 +1,50 @@
+@import 'variables';
+
+.search-form1 {
+    display: inline-flex;
+    transition: 0.4s linear;
+    width: 0;
+    overflow: hidden;
+
+}
+
+.search-form2 {
+    border: 1px solid var(--primary-highlight-color);
+    display: inline-flex;
+    transition: 0.4s linear;
+    width: 193px;
+    flex-wrap: nowrap;
+    overflow: hidden;
+}
+
+.search-button1{
+    display: inline-flex;
+    color: var(--primary-highlight-color);
+    // background-color: var(--background-color);
+    background-color: rgba(0,0,0,0);
+    border: none;
+}
+.search-button2 {
+    display: inline-block;
+    border: 1px solid var(--primary-highlight-color);
+    color: var(--primary-highlight-color);
+    background-color: var(--background-color);
+}
+
+.search-field {
+    border: none;
+}
+
+.search-icon{
+    color: var(--primary-highlight-color);
+}
+
+#icon-submit {
+    color: var(--primary-highlight-color);
+}
+
+.search-submit{
+    margin: 0;
+    border: 1px solid var(--primary-highlight-color);
+    background-color: var(--background-color);;
+}
