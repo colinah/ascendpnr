@@ -20,8 +20,21 @@
 
 	<?php wp_head(); ?>
 </head>
+<?php 
+$bodyStyle = null;
+	if( is_front_page() ){
+		?>
+		<body class="background-clear"
+			style="background-image:url(<?php echo wp_get_attachment_image_src( 121,'banner')[0]?>); background-attachment:fixed; background-repeat: no-repeat; background-position: center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;"
+			<?php body_class();?> >
+		<?php
+	} else {
+		?>
+		<body <?php body_class();?> >
+		<?php
+	};
+?>
 
-<body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 <div id="page" class="site">
 	<div class="header-backer"></div>
@@ -37,6 +50,7 @@
 				<span class="nav-primary__item nav-primary__item-hover" ><a href="<?php  echo site_url('/') ?>">Home</a></span>
 				<span class="nav-primary__item nav-primary__item-hover" ><a href="<?php  echo site_url('/blog') ?>">Blog</a></span>
 				<span class="nav-primary__item nav-primary__item-hover" ><a href="<?php  echo site_url('/contact') ?>">Contact</a></span>
+				<span class="nav-primary__item nav-primary__item-hover" ><a href="<?php  echo site_url('/services') ?>">Services</a></span>
 				<span class="nav-primary__item nav-primary__item-hover" ><a href="<?php  echo site_url('/bio') ?>">Bio</a></span>
 				<span class="nav-primary__item"><?php get_search_form(); ?></span>
 			</nav>
@@ -61,6 +75,7 @@
 				<span class="nav-menu__item" ><a href="<?php  echo site_url('/') ?>">Home</a></span>
 				<span class="nav-menu__item" ><a href="<?php  echo site_url('/blog') ?>">Blog</a></span>
 				<span class="nav-menu__item" ><a href="<?php  echo site_url('/contact') ?>">Contact</a></span>
+				<span class="nav-menu__item" ><a href="<?php  echo site_url('/services') ?>">Services</a></span>
 				<span class="nav-menu__item" ><a href="<?php  echo site_url('/bio') ?>">Bio</a></span>
 				<span class="nav-menu__item" ><?php get_search_form(); ?></span>
 			</nav>

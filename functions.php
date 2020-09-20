@@ -326,6 +326,27 @@ function add_that_css_and_js() {
     <?php
   }
 
+  function servicesPackage ($postNumberOnPage) {
+	$image = get_field('services-image');
+	$excerpt = get_field('services_excerpt');
+
+	  ?>
+                    <div class="services <?php if($postNumberOnPage % 2 == 0){ echo "services-reverse";}; ?>">
+                        <div class='services-image-wrapper'>
+                            <div class="services-image image-darken" style="background-image:url(<?php echo $image['url'];?>); background-repeat: no-repeat; background-position: center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;"></div>
+                            <div class="services-image__cover"></div>
+                         </div>
+                        <div class="services-content">
+                            <div>
+                            <h2 class="services-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+                            <p><?php echo $excerpt ?></p>
+							</div>
+							<button class="services-button"><a href="<?php echo get_permalink( get_page_by_path( 'contact' ) ); ?>">Contact Me</a></button>
+                        </div>
+                    </div> <!-- /.services-->
+	  <?php
+  }
+
 
   add_action('wp_ajax_nopriv_load_more_posts', 'load_more_posts');
   add_action('wp_ajax_load_more_posts', 'load_more_posts');

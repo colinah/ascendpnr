@@ -1,5 +1,25 @@
 <?php get_header(); ?>
 <div class="page-wrapper">
+<div class="photobanner">
+    <?php if (have_posts() ) : while ( have_posts() ) : the_post(); ?>
+    <h1 class="photobanner-title"><?php the_title(); ?></h1>
+        <div class="photobanner-block image-darken" 
+            style="background-image:url(<?php echo get_the_post_thumbnail_url()?>);
+                background-repeat: no-repeat;
+                background-position: center;
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;">
+                
+        </div>
+        <div class="photobanner-cover"></div>
+    <?php
+    endwhile;
+    wp_reset_postdata(); // this should be inside if - there is no need to rested postdata if the_post hasn’t been called.
+    endif; 
+    ?> 
+    </div> <!-- /.photobanner--->
     <div class="content-wrapper">
         <div class="content-main">
  
@@ -14,7 +34,13 @@
 
                         <div class="bio-highlight__wrapper">
                             <div class="bio-portrait">  
-                                <img class="image" src="<?php the_post_thumbnail_url()?>" >
+                                <!-- <img  src="<?php the_post_thumbnail_url()?>" > -->
+                                <?php 
+                                $image = get_field('portrait');
+                                // var_dump($image);
+                                if( !empty( $image ) ): ?>
+                                    <img class="image" src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+                                <?php endif; ?>
                             </div>
                             <div class="bio-icons__wrapper">
                                 <div class="bio-icons">
