@@ -29,7 +29,7 @@
                         the_post(); 
                         ?>
                         <div class="section-header__wrapper">
-                            <h3 class="section-header"><?php the_title(); ?><h3>
+                            <h3 class="section-header">Jedidiah Farley<h3>
                         </div>
 
                         <div class="bio-highlight__wrapper">

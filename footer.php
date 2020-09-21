@@ -8,21 +8,42 @@
  *
  * @package Ascend_Performance_and_Rehab
  */
+// <div class="photobanner-block image-darken" 
+// style="background-image:url(<?php echo wp_get_attachment_image_src( 140, 'large' )[0]);
+// 		background-repeat: no-repeat;
+// 		background-position: center;
+// 		-webkit-background-size: cover;
+// 		-moz-background-size: cover;
+// 		-o-background-size: cover;
+// 		background-size: cover;">
 
+// </div>
 ?>
-
 	<footer id="colophon" class="site-footer">
+		<div class="footer-banner"
+			style="background-image:url(<?php echo wp_get_attachment_image_src( 140, 'large' )[0]; ?>);
+			background-repeat: no-repeat;
+			background-position: center;
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+			background-size: cover;" >
+			<div class="footer-banner__cover"></div>
+				<div class="footer-newsletter__wrapper">
+						<?php dynamic_sidebar('newsletter'); ?>
+
+					</div>
+				</div>
+			</div>
 		<div class="footer-wrapper">
 			<div class="footer-menu__wrapper">
 				<?php dynamic_sidebar('footer'); ?>
 			</div>
-			<div class="footer-newsletter__wrapper">
-				<?php dynamic_sidebar('newsletter'); ?>
-				<div class="footer-icons">
-					<div class="footer-icon-text">Follow us on social media:</div>
-					<div class="footer-icon"><a href="https://www.instagram.com/dr.jedidiah/?hl=en"><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></a></div>
-				</div>
-			</div>
+			<div class="footer-icons">
+							<div class="footer-icon-text">Follow us on social media:</div>
+							<div class="footer-icon"><a href="https://www.instagram.com/dr.jedidiah/?hl=en"><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></a></div>
+						</div>
+
 		</div> <!-- /footer-wrapper -->
 
 		<div class="bottom-wrapper">

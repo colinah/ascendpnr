@@ -7,7 +7,7 @@
         <div class="photobanner-block image-darken" 
             style="background-image:url(<?php echo get_the_post_thumbnail_url()?>);
                 background-repeat: no-repeat;
-                background-position: center;
+                background-position: 50% 15%;
                 -webkit-background-size: cover;
                 -moz-background-size: cover;
                 -o-background-size: cover;
@@ -24,8 +24,12 @@
     </div> <!-- /.photobanner--->
     <div class="content-wrapper">
         <div class="content-main">
+        <?php 
+            $link = get_category_by_slug('featured');
+        // var_dump($link['cat_ID']); 
+        ?>
         <div class="section-header__wrapper">
-         <h3 class="section-header">Featured Articles<h3>
+         <h3 class="section-header"><a href="<?php echo get_category_link('featured') ?>">Featured Articles</a><h3>
         </div>   
      <div class="post-package__wrapper">
      <?php

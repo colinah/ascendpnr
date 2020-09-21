@@ -248,6 +248,15 @@ function add_that_css_and_js() {
 	]);
 });
 
+add_action('init', function(){
+	register_post_type('Front-Page', [
+		'public' => true,
+		'label' => 'Front-Page',
+		'has_archive' => false,
+		'menu_icon'   => 'dashicons-edit-large',
+	]);
+});
+
   function postPackages() {
 	  ?>
             <article class="post-package">
@@ -344,6 +353,22 @@ function add_that_css_and_js() {
 							<button class="services-button"><a href="<?php echo get_permalink( get_page_by_path( 'contact' ) ); ?>">Contact Me</a></button>
                         </div>
                     </div> <!-- /.services-->
+	  <?php
+  }
+
+  function frontPackage ($postNumberOnPage) {
+	$imageID = get_field('front_page_image');
+	$image = wp_get_attachment_image_src($imageID, 'large')[0];
+	  ?>
+                    <div class="front <?php if($postNumberOnPage % 2 == 0){ echo "front-reverse";}; ?>">
+                        <div class='front-image-wrapper'>
+                            <div class="front-image image-darken" style="background-image:url(<?php echo $image;?>); background-repeat: no-repeat; background-position: center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;"></div>
+                         </div>
+                        <div class="front-content">
+                            <h2 class="front-title"><?php the_title(); ?></h2>
+                            <?php the_content(); ?>
+                        </div>
+                    </div> <!-- /.front-->
 	  <?php
   }
 
