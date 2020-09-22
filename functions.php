@@ -276,7 +276,7 @@ add_action('init', function(){
                             if(has_category('strength-and-conditioning')){
                                 ?>
                                     <div class="package-icon">
-										<a href="<? echo get_category_link(3); ?>">
+										<a href="<?php echo get_category_link(3); ?>">
 											<img class="image-no__darken" src="<?php echo wp_get_attachment_image_src( 46 )[0]; ?>" >
 										</a>
                                     </div>
@@ -309,7 +309,7 @@ add_action('init', function(){
                             if(has_category('lower-extremities')){
                                 ?>
                                     <div class="package-icon">
-										<a href="<? echo get_category_link(31); ?>">
+										<a href="<?php echo get_category_link(31); ?>">
 											<img class="image-no__darken" src="<?php echo wp_get_attachment_image_src( 72 )[0]; ?>" >
 										</a>
                                     </div>

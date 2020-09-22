@@ -11,14 +11,3 @@
         <button type="submit" class="search-submit"><i id="icon-submit" class="fa fa-search"></i></button>
 </form>
 <button class="search-button search-button1"><i class="fa fa-search search-icon"></i></button>
-
-
-
-
-
-
-
-<!-- <form class="example" action="/action_page.php">
-  <input type="text" placeholder="Search.." name="search">
-  <button type="submit"><i class="fa fa-search"></i></button>
-</form> -->
